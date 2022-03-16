@@ -17,6 +17,7 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
-    "hapi": "^18.1.0"
+    "hapi": "^18.1.0",
+    "inert": "^5.1.3"
   }
 }

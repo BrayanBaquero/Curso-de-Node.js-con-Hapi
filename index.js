@@ -1,22 +1,45 @@
 'use strinct'
 
 const Hapi = require('Hapi')
+const inert=require('inert')
+const path=require('path')
 
 const server = Hapi.server({
   port: process.env.PORT || 3000,
-  host: 'localhost'
+  host: 'localhost',
+  routes:{
+      files:{
+          relativeTo:path.join(__dirname,'public')
+      }
+  }
 })
 
 async function init () {
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: (req, h) => {
-      return 'Hola mundo!'
-    }
-  })
+
 
   try {
+    await server.register(inert)
+
+    server.route({
+        method: 'GET',
+        path: '/home',
+        handler: (req, h) => {
+          return h.file('index.html')
+        }
+      })
+      
+      server.route({
+        method: 'GET',
+        path: '/{param*}',
+        handler: {
+            directory:{
+                path:'.',
+                index:['index.html'] 
+            }
+         
+        }
+      }) 
+
     await server.start()
   } catch (error) {
     console.error(error)
