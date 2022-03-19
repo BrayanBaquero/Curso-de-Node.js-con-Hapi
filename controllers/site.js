@@ -11,7 +11,14 @@ function register(req, h)  {
       title: 'Registro'
     })
 }
+
+function login(req, h)  {
+  return h.view('login', {
+    title: 'Login'
+  })
+}
 module.exports={
     home: home,
-    register:register
+    register:register,
+    login: login
 }

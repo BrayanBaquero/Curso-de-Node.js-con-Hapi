@@ -25,7 +25,26 @@ module.exports=[
         }
     },
     handler: user.createUser
-  },{
+  },
+  {
+    method: 'GET',
+    path: '/login',
+    handler: site.login
+  },
+  {
+    method: 'POST',
+    path: '/validate-user',
+    options:{
+        validate:{
+           payload:Joi.object({
+               email:Joi.string().email().required(),
+               password:Joi.string().required().min(6)
+           } )
+        }
+    },
+    handler: user.validateUser
+  },
+  {
       method: 'GET',
       path: '/{param*}',
       handler: {
