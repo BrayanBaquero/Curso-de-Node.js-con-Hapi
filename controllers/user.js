@@ -1,10 +1,17 @@
 'use strict'
 
+const users=require('../models/index').users
 
+async function createUser(req,h)  {
+    let result 
+    try {
+        result=await users.create(req.payload)
+    } catch (error) {
+        console.error(error)
+        return h.response('Problemas creadno el usuario').code(500)
+    }
 
-function createUser(req)  {
-    // console.log(req.payload)
-    return req.payload
+    return h.response(`Usuariio creado ID: ${result}`)
 }
 
 module.exports={

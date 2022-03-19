@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cursoplatzinodejshapi",
+  "private_key_id": "91bb0c0c7419aa329865f663294f0d8a0b30d511",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCWLvzbI2VzEcRU\n4SSMBhAKkHZszkjQ0me4tcEMeCMOlpSykmuZVQEByAL8JvJb9+G0ybX2JylgvAp3\nilPhD1W2+QCzhGj0mHA0D8L+zENivYEYZLciisJJwcG2XH3CuabIcdk73W8pvb10\nUVbkoLft1vKfBMDU40BQdJkiOnUTSLK3Nfi65ARCTipmPscICO99pm3VSXrRoEnv\nYJsF8h/axdNJelB0lzG77WiQmEV8LQxXguUuyP/x9WCd4HvsEXprZPvlyLgXq1gI\nD54/rxH1vpLINcY9gSvVh37FX+WyDYHRvAsvGjhCsNCA/bjzIgn8hHmaXDDX63+H\nP/UWG0jRAgMBAAECggEAECCdm0lddJI822yN8yds2OWTLLNTkxvKcvBkTwV7pkO6\nAMRudORxm5Jcl7KgULX5cTjpUbSk4d7E36S6xdlSuA0HQT/VJtGpLZNfujg50u73\nX6TjxvwlnwFaiaMRsjPOMDThl2cmWnzQonQK+Q7f5tTamwRJ/NJ72T1G0IEnNK8Y\nuiyTeUpv9qWsYnMw0XPWLi/DJbZp+W8Z4DKQFY1lnpImiB4SV8CEZ64Ju9VR6JL1\ncX1PoNNNmS6UWMkpYuRZMis9XofQpU7Wh8KhycyRNJm41tFqVSz0sUPV/FsDBnm8\nvXzs3ngA9HwZ+YZ2BGkC6nAIHn0GbPkRbVGAVpsp3QKBgQDIxDpRhUca481qGf5H\nDPKJqJr5vl7VcQZKJhsdEA9LzUzCOjqHMvEpuzBNrM6ZXK+1xAX8zqR7r3XvJQiX\n3dt/1YzK7g0xgpFdJWr/bTblp8BlzOuVvlXmuOZnRvsV5JEbcagL3r42YAUte9dt\nQ4jPxLA1hBhuLqjjzfU3SPvTQwKBgQC/gEFTTsOOvfpj7GGOQMij0MdbsDtZzmrC\nl2ie5orRMTbfC50obwzusLuAaCtKNBhe6gKoJ8Zim1IfyH/tm7W3B2r1siCCpj24\nDbS6HMvZX8VmyYTCzXN+Hdvj2Gx5IDy12RaEvNxQMlfiG/D5MMebUA6qQm6BRRZ7\nbrAiCWEQWwKBgGXbuMLXXaX04ajtGyctGHhjBI2k2jRsLYa9IpByL3CD7me0ZzFk\n1RoZEH64J/GDJtqPY4JJzQW7lZgJL/zs4IpQ7Ceg8yylU97wNwL0hB+sJl7/wp6s\nfKScNrk7N/R5jG1iEqJDFjo8KSRUao3S77yJy+S66jIslh9NxRWRf8JFAoGAIX+F\n7dSxUJ7a1e/bgM7ESiOTO+6v8x2wfymNG36oeb9qIcoeS5xhXr97jRKrv+cs/C1j\nGZcblNQmoXipKB88wi+B/kiSd0gtM6zyGDxBTFz8YuaNWqYltcHzXP/Wublx5T18\nOuvuffjQdrT8ihqGUBzI8+969RHoxN6v4MRTPlECgYAWB+CpSHToKuopmGXzE97A\nMdhNKEFKUhRHpKahdw1uY8LwFfcKzubTM0AiG2Mrk9r1Vgis4qcZH6F87eky6TI1\nEMobgCCLMiRd0J5azbp0oqP+5J5O5JxvDTqPQNs+6nCW8apWwN0X5y72ZO8KjhIH\nVhS37l9z4pRsI28YSdp+Hg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-u6vyq@cursoplatzinodejshapi.iam.gserviceaccount.com",
+  "client_id": "115220031475311054275",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-u6vyq%40cursoplatzinodejshapi.iam.gserviceaccount.com"
+}
