@@ -54,7 +54,7 @@ module.exports=[
   },
   {
       method: 'GET',
-      path: '/{param*}',
+      path: '/assets/{param*}',
       handler: {
           directory:{
               path:'.',
@@ -62,5 +62,10 @@ module.exports=[
           }
 
       }
+  },
+  {
+    method:['GET','POST'],
+    path: '/{any*}',
+    handler: site.notFound
   } 
 ]
