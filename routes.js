@@ -2,6 +2,7 @@
 const Joi =require('@hapi/joi')
 const site=require('./controllers/site')
 const user=require('./controllers/user')
+const { users } = require('./models')
 
 module.exports=[
   {
@@ -21,7 +22,8 @@ module.exports=[
                name:Joi.string().required().min(3),
                email:Joi.string().email().required(),
                password:Joi.string().required().min(6)
-           } )
+           }),
+           failAction: user.failValidation
         }
     },
     handler: user.createUser
@@ -44,7 +46,8 @@ module.exports=[
            payload:Joi.object({
                email:Joi.string().email().required(),
                password:Joi.string().required().min(6)
-           } )
+           } ),
+           failAction: user.failValidation
         }
     },
     handler: user.validateUser
