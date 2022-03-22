@@ -1,17 +1,14 @@
 'use strinct'
 
 const Hapi = require('@hapi/hapi')
-const handlebars = require('handlebars')
+const handlebars = require('./lib/helpers')
 const inert = require('@hapi/inert')
 const path = require('path')
 const vision = require('@hapi/vision')
 const routes=require('./routes')
 const site=require('./controllers/site')
 
-handlebars.registerHelper('answerNumber',(answers)=>{
-  const keys=Object.keys(answers)
-  return keys.length
-})
+
 
 const server = new Hapi.server({
   port: process.env.PORT || 3000,
