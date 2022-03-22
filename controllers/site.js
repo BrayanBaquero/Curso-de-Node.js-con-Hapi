@@ -40,7 +40,6 @@ async function viewQuestion(req,h){
   let data 
   try {
     data=await questions.getOne(req.params.id)
-    console.log(data)
     if(!data){
       return notFound(req,h)
     }
