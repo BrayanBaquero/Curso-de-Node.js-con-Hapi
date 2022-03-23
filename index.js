@@ -1,6 +1,8 @@
 'use strinct'
 
 const Hapi = require('@hapi/hapi')
+const blankie=require('blankie')
+const scooter=require('@hapi/scooter')
 const crumb=require('@hapi/crumb')
 const handlebars = require('./lib/helpers')
 const inert = require('@hapi/inert')
@@ -11,6 +13,7 @@ const site=require('./controllers/site')
 const methods=require('./lib/methods')
 const good=require('@hapi/good')
 const goodConsole=require('@hapi/good-console')
+const { options } = require('blankie/lib/schema')
 
 
 const server = new Hapi.server({
@@ -49,6 +52,17 @@ async function init () {
         }
       }
     })
+
+    await server.register([scooter,{
+      plugin:blankie,
+      options:{
+        defaultSrc:`'self' 'unsafe-inline'`,
+        styleSrc: `'self' 'unsafe-inline' http://maxcdn.bootstrapcdn.com`,
+        fontSrc: `'self' 'unsafe-inline' data:`,
+        scriptSrc: `'self' 'unsafe-inline' https://cdnjs.cloudflare.com http://maxcdn.bootstrapcdn.com/ https://code.jquery.com/`,
+        generateNonces:false
+      }
+    }])
     await server.register({
       plugin: require('./lib/api'),
       options:{
