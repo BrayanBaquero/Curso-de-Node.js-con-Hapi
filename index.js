@@ -1,6 +1,7 @@
 'use strinct'
 
 const Hapi = require('@hapi/hapi')
+const crumb=require('@hapi/crumb')
 const handlebars = require('./lib/helpers')
 const inert = require('@hapi/inert')
 const path = require('path')
@@ -40,6 +41,14 @@ async function init () {
       }
     })
 
+    await server.register({
+      plugin: crumb,
+      options:{
+        cookieOptions:{
+          isSecure:process.env.NODE_ENV === 'prod'
+        }
+      }
+    })
     await server.register({
       plugin: require('./lib/api'),
       options:{
