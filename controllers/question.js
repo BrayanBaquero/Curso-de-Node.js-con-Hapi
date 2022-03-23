@@ -6,7 +6,9 @@ const question=require('../models/index').questions
 
 async function createQuestion(req,h){
     let result
-
+    if(!req.state.user){
+        return h.redirect('/login')
+    }
     try {
        result=await question.create(req.payload,req.state.user) 
        console.log(`Pregunta creada con el ID${result}`)
@@ -24,6 +26,9 @@ async function createQuestion(req,h){
 
 async function answerQuestion(req,h) {
     let result
+    if(!req.state.user){
+        return h.redirect('/login')
+    }
     try {
         result=await question.answer(req.payload,req.state.user)
         console.log(`Respuesta creada: ${result}`)
@@ -33,7 +38,22 @@ async function answerQuestion(req,h) {
     return h.redirect(`/question/${req.payload.id}`)
 }
 
+async function setAnswerRight(req,h){
+    let result
+    if(!req.state.user){
+        return h.redirect('/login')
+    }
+    try {
+        result=await req.server.methods.setAnswerRight(req.params.questionId,req.params.answerId,req.state.user)
+        console.log(result)
+    } catch (error) {
+        console.error(error)
+    }
+
+    return h.redirect(`/question/${req.params.questionId}`)
+}
 module.exports={
     createQuestion: createQuestion,
-    answerQuestion:answerQuestion
+    answerQuestion:answerQuestion,
+    setAnswerRight:setAnswerRight
 }

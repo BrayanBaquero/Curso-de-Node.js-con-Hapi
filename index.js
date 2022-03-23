@@ -7,6 +7,7 @@ const path = require('path')
 const vision = require('@hapi/vision')
 const routes=require('./routes')
 const site=require('./controllers/site')
+const methods=require('./lib/methods')
 
 
 
@@ -24,6 +25,8 @@ async function init () {
   try {
     await server.register(inert)
     await server.register(vision)
+
+    server.method('setAnswerRight',methods.setAnswerRight)
 
     server.state('user',{
       ttl:1000*60*60*24*7,

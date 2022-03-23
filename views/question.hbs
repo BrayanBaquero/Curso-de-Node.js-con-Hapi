@@ -5,7 +5,7 @@
         <p class="mb-0">Creada por <strong> {{question.owner.name}} </strong></p>
       </div>
       {{#each question.answers as |q key|}}
-      <div class="alert alert-info" role="alert">
+      <div class="alert {{#if q.correct}}alert-success{{else}}alert-info{{/if}}" role="alert">
         <p> {{q.text}}</p>
         <hr>
         <div class="container">
@@ -16,35 +16,45 @@
             <div class="col-sm text-right">
               {{#with user}}
                 {{#ifEquals ../../question.owner.email ../../user.email}}
-                  <a href="" class="btn btn-primary" role="button">Elegir respuesta correcta</a>
+                 {{#unless q.correct}}
+                    <a href="/answer/{{../../../../key}}/{{key}}" class="btn btn-primary" role="button">Elegir respuesta correcta</a>
+                  {{/unless}}
                 {{/ifEquals}}
               {{/with}}
+
+              {{#if q.correct}}
+                <h3><span class="badge badge-success">Respuesta correcta</span></h3>
+              {{/if}}
             </div>
           </div>
         </div>
       </div>
       {{/each}}
 
-      <div class="card mb-3">
-        <div class="card-header">
-          <h3>Responder</h3>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <form method="POST" action="/answer-question">
-                <div class="form-group">
-                  <label for="answer">Respuesta</label>
-                  <textarea class="form-control" id="answer" name="answer" placeholder="Ingrese la respuesta" required></textarea>
-                  <input type="hidden" name="id" value="{{key}}" />
-                </div>
-                <div class="text-center mt-5">
-                  <button type="submit" class="btn btn-primary">Enviar respuesta</button>
-                </div>
-              </form>
+      {{#if user}}
+        <div class="card mb-3">
+          <div class="card-header">
+            <h3>Responder</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <form method="POST" action="/answer-question">
+                  <div class="form-group">
+                    <label for="answer">Respuesta</label>
+                    <textarea class="form-control" id="answer" name="answer" placeholder="Ingrese la respuesta" required></textarea>
+                    <input type="hidden" name="id" value="{{key}}" />
+                  </div>
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary">Enviar respuesta</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      {{else}}
+      <p class="text-center mt-5"><a href="/login" class="btn btn-primary" role="button">Ingrese para reponder</a></p>
+      {{/if}}
 
     </div>
