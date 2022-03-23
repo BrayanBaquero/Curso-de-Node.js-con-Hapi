@@ -1,16 +1,30 @@
 'use strict'
 
 
-
+const {writeFile}=require('fs')
+const {promisify}=require('util')
+const {join}=require('path')
 const question=require('../models/index').questions
+const {v1: uuid}=require('uuid')
+//const isBuffer=require('is-buffer')
+
+const write=promisify(writeFile)
 
 async function createQuestion(req,h){
-    let result
+    let result, filename, bufferImg
     if(!req.state.user){
         return h.redirect('/login')
     }
     try {
-       result=await question.create(req.payload,req.state.user) 
+        bufferImg=Buffer.from(req.payload.image)
+        console.log(req.payload.image)
+        //bufferImg=req.payload.image
+        if(Buffer.isBuffer(bufferImg)){
+            filename=`${uuid()}.png`
+            await write(join(__dirname,'..','public','uploads',filename),req.payload.image)
+        }
+       
+       result=await question.create(req.payload,req.state.user,filename) 
        console.log(`Pregunta creada con el ID${result}`)
     } catch (error) {
         console.error(`Ocurrio un error ${error}`)
@@ -21,7 +35,7 @@ async function createQuestion(req,h){
         }).code (500).takeover()
     }
 
-    return h.response(`Pregunta creada con el ID${result}`)
+    return h.redirect(`/question/${result}`)
 }
 
 async function answerQuestion(req,h) {
